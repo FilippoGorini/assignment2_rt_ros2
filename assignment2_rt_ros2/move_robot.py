@@ -59,11 +59,11 @@ class MoveRobot(Node):
 
 # Main function that sets up the node and create an instance of the MoveRobot() class. This is the entry point for the setup.py file
 def main(args=None):
-    rclpy.init(args=args)
-    node = MoveRobot()
-    rclpy.spin(node)
-    node.destroy_node()
-    rclpy.shutdown()
+    rclpy.init(args=args)                                           # Initialize ROS 2
+    node = MoveRobot()                                              # Create an instance of the MoveRobot class
+    rclpy.spin(node)                                                # Run the node
+    node.destroy_node()                                             # Clean up
+    rclpy.shutdown()                                                # Shutdown ROS 2 
 
 if __name__ == '__main__':
     main()
