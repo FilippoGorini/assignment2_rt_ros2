@@ -29,9 +29,8 @@ class MoveRobot(Node):
             response.message = "Robot started!" 
         elif request.start == False:
             response.message = "Robot stopped!"
-        return response.message
-                 
-        
+        return response
+
 
     # This is the callback function executed everytime the /odom topic is updated. It stores the position of the robot ...
     # ... and triggers the move_robot function, which manages the velocity commands to the robot
@@ -44,8 +43,8 @@ class MoveRobot(Node):
     # new publish position function
     def publish_position(self):
         pos = Pos2D()
-        pos.x = self.x
-        pos.y = self.y
+        pos.x = self.x * 3.28                           # Convert the position from meters to feet  
+        pos.y = self.y * 3.28
         self.pub_position.publish(pos)
 
     # This function should make the robot move in a "s" pattern like we did in the turtlesim exercises, while also making ...
